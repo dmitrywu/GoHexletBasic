@@ -2,8 +2,8 @@
 
 import (
 	"fmt"
-	//"strings"
-	//	"unicode"
+	"strings"
+	"unicode"
 )
 
 func FilterString(text string, symb rune) string {
@@ -11,23 +11,23 @@ func FilterString(text string, symb rune) string {
 		return text
 	}
 
-	// var sb strings.Builder
+	var sb strings.Builder
 
-	// var r1 byte = byte(unicode.ToLower(symb))
-	// var r2 byte = byte(unicode.ToUpper(symb))
+	s := unicode.ToLower(symb)
 
-	for _, i := range text {
-		fmt.Print(i)
-		fmt.Println(text)
-
+	for _, r := range text {
+		if unicode.ToLower(r) != s {
+			sb.WriteRune(r)
+		}
 	}
 
-	return ""
+	return sb.String()
 
 }
 
 func main() {
 
+	fmt.Println(FilterString("", 'i'))
 	fmt.Println(FilterString("If I look forward I win", 'i'))
 
 }
