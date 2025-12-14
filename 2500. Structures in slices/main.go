@@ -7,6 +7,15 @@ type User struct {
 	Email string
 }
 
+func FindUserByEmail(users []User, email string) *User {
+	for i := range users {
+		if users[i].Email == email {
+			return &users[i]
+		}
+	}
+	return nil
+}
+
 func main() {
 	users := []User{
 		{Name: "Семен", Email: "semen@example.com"},

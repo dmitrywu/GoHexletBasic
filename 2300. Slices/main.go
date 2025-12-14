@@ -12,6 +12,15 @@ func GetWorkHours(schedule []int) []int {
 	return sum
 }
 
+func AddDiscount(prices []float64, discount float64) []float64 {
+	length := len(prices)
+	if length < 1 {
+		return prices
+	}
+	prices[length-1] = prices[length-1] * (1 - (discount / 100))
+	return prices
+}
+
 func main() {
 	var num []int
 	numbers := []int{}
